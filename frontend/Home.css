@@ -142,56 +142,72 @@ body{
 
 .center-body-image {
     box-sizing: border-box;
-    /* height: 10; */
     max-width: 100%;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.879);;
     border: 1px solid rgba(255,255, 255, 0.2);
-    /* background: rgba(255, 255, 255, 0.8);  */
 }
 
-.center-body-info {
+/* Hero Section Styling */
+.hero {
     display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
-    gap: 1.5rem;
-    /* color: rgb(252, 151, 0); */
-    color: orange;
-}
-
-.website-name-center {
-    margin: 2.5rem;
-}
-
-
-.website-name-center{
-    margin: 2.5rem;
-}
-
-#center-body-web-name{
-    font-size: 5.5rem;
-    /* color: rgb(252, 151, 0); */
-    color: orange;
-    font-weight: bold;
-    font-family: serif;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #0e0e0e 0%, #000 100%);
+    width: 100%;
 }
 
-#center-body-heading{
-    font-size: 4rem;
-    font-weight: bold;
+        
+.title {
+    font-size: 6rem;
+    color: #ffa500;
+    font-weight: 700;
 }
 
-#center-body-small-heading{
-    font-size: 4rem;
-    font-weight: bold;
-    margin-left: 25rem;
+.tagline {
+    font-size: 3rem;
+    color: white;
+    margin-top: 1.5rem;
 }
+
+.tagline-emphasis {
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.cta-primary {
+    background: linear-gradient(to right, #ffa500, #ff7b00);
+    color: black;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 140, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 2.2 6px 8px rgba(255, 140, 0, 0.6);
+}
+
+        
 
 /* css for blogs */
 .blog-container{

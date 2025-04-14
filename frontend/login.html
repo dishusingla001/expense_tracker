@@ -30,23 +30,6 @@
                 <p class="switch-page">Don't have an account? <a href="signup.html">Sign Up</a></p>
 
                 <script src="https://kit.fontawesome.com/d077a0e0a8.js"></script>
-                <!-- <script>
-                    document.getElementById('loginForm').addEventListener('submit', function (e) {
-                        e.preventDefault();
-
-                        // Get form values
-                        const email = document.getElementById('email').value;
-                        const password = document.getElementById('password').value;
-
-                        // In a real application, you would validate these credentials with a server
-                        // For this demo, we'll just store the login state
-                        localStorage.setItem('isLoggedIn', 'true');
-                        localStorage.setItem('userEmail', email);
-
-                        // Redirect to home page after login
-                        window.location.href = 'Home.html';
-                    });
-                </script> -->
             </form>
 
             <script>
@@ -69,7 +52,7 @@
                     if (text === 'success') {
                         localStorage.setItem('isLoggedIn', 'true');
                         localStorage.setItem('userEmail', document.getElementById('email').value); // optional
-                        window.location.href = 'Home.html';
+                        window.location.href = 'index.html';
                     } else {
                         alert('Invalid email or password'); // show error popup
                     }

@@ -25,42 +25,38 @@
 
 </head>
 <body>
-      <div class="header-body">
-        <div class="logo-info">
-            <img src="logo-moneyminder.png" alt="Logo">
+  <div class="header-body">
+    <div class="logo-info">
+        <img src="Moneynew_logo-removebg-preview.png" alt="Logo">
+    
+        <div id="logo-title">
+            <h1>Money</h1>
+            <br>
+            <h1>Minder</h1>
+        </div>               
         
-            <div id="logo-title">
-                <h1>Money</h1>
-                <br>
-                <h1>Minder</h1>
-            </div>               
-            
-        </div>
-
-        <div class="nav-bar">
-            <nav>
-                <div class="toggle">
-                    <div class="icon"> <i class="fa-solid fa-bars"></i></div>
-                </div> 
-
-                <ul class="nav-bar-list">
-                    <li><a href="Home.html">Home</a></li>
-                    <li><a href="expenses.html">Expenses</a></li>
-                    <li><a href="">Budget</a></li>
-                    <li><a href="">Expenditure</a></li>
-                    <li><a href="help.html">Help</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="login-button" id="auth-button">
-          Login
-          <!-- Filled dynamically -->
-      </div>
-
-
     </div>
 
+    <div class="nav-bar">
+        <nav>
+            <div class="toggle">
+                <div class="icon"> <i class="fa-solid fa-bars"></i></div>
+            </div> 
+
+            <ul class="nav-bar-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graph.html">Account</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="login-button">
+        <a href="login.html">Login</a>
+    </div>
+
+</div>
     <div class="header">
       <div class="dashboard-title">Financial Dashboard</div>
       <div class="user-info">Welcome back, John Doe</div>
@@ -81,12 +77,12 @@
     
   </div>
 
-  <div class="chart-section">
+  <!-- <div class="chart-section">
     <div class="tab-container">
       <div class="tab active">Monthly Reports</div>
     </div>
   
-    <div id="monthlyChartSection">
+    <!-- <div id="monthlyChartSection">
       <div class="chart-header">
         <div class="chart-title">Last 6 Days Spending</div>
       </div>
@@ -94,11 +90,11 @@
         <canvas id="last6DaysChart" width="600" height="400"></canvas>
       </div>
       
-    </div>
-  </div>
+    </div> -->
+  </div> -->
   
 
-<!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const loginBtnDiv = document.getElementById('auth-button');
@@ -134,7 +130,7 @@
     localStorage.removeItem('userEmail');
     window.location.href = 'Home.html';
   }
-</script> -->
+</script>
 
 
 <script>

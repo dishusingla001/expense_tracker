@@ -12,9 +12,8 @@ body{
   max-width: 100%;
   font-family: cursive;
 }
-
-/* css for the header body  */
-.header-body{
+ /* css for the header body  */
+ .header-body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
   display: flex;
   justify-content: space-between;
@@ -27,11 +26,15 @@ body{
 .logo-info{
   display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .logo-info img{
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
+  margin-top:6px ;
 }
 
 .logo-info h1{
