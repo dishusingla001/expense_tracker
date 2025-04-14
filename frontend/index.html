@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     
     <div class="header-body">
         <div class="logo-info">
             <img src="Moneynew_logo-removebg-preview.png" alt="Logo">
-        
             <div id="logo-title">
-                <h1>Money</h1>
-                <br>
-                <h1>Minder</h1>
-            </div>               
-            
+                <h1>Money<br>Minder</h1>
+            </div>
         </div>
-
+    
         <div class="nav-bar">
             <nav>
                 <div class="toggle">
-                    <div class="icon"> <i class="fa-solid fa-bars"></i></div>
+                    <div class="icon"><i class="fa-solid fa-bars"></i></div>
                 </div> 
 
                 <ul class="nav-bar-list">
@@ -34,12 +31,12 @@
                 </ul>
             </nav>
         </div>
-
+    
         <div class="login-button">
             <a href="login.html">Login</a>
         </div>
-
     </div>
+    
 
      <div class="center-body-image">
             <section class="hero">
@@ -62,8 +59,7 @@
 
     <div class="blog-container">
         <div id="blog1" class="blogs">
-            <h1>Money Minder: Stay in Control of Your Finances!</h1>
-            <br>
+            <h2>Track Your Spending Easily</h2>
             <p>
                 Why choose money minder:
                 <ul>
@@ -75,14 +71,15 @@
         </div>
 
         <div id="blog2" class="blogs">
-            <h1>How to start with Money Minder</h1>
-            <br>
-            <ul>
-                <li>Log in or Sign up accordingly.</li>
-                <li>Fill personal details and financial details forms to customize your experience.</li>
-                <li>Specify the budget you need.</li>
-                <li>Regular report will be concluded.</li>
-            </ul>
+            <h2>How to start with Money Minder</h2>
+            <p>
+                <ul>
+                    <li>Log in or Sign up accordingly.</li>
+                    <li>Fill personal details and financial details forms to customize your experience.</li>
+                    <li>Specify the budget you need.</li>
+                    <li>Regular report will be concluded.</li>
+                </ul>
+            </p>
         </div>
     </div>
 
@@ -176,9 +173,7 @@
             <div class="footer-support">
               <h3>Support</h3>
               <ul>
-                <li><a href="#aboutus">About Us</a></li>
                 <li><a href="#emailus">Email Us</a></li>
-                <li><a href="#faqs">FAQs</a></li>
               </ul>
             </div>
       
@@ -191,14 +186,44 @@
           <p>Terms & Conditions</p>
         </div>
     </footer>
+
+<script src="https://kit.fontawesome.com/d077a0e0a8.js" crossorigin="anonymous"></script>
+
+<script>
+    const toggle = document.querySelector('.toggle');
+    const navBar = document.querySelector('.nav-bar');
+
+    toggle.addEventListener('click', () => {
+        navBar.classList.toggle('active');
+    });
+</script>
+
+<script>
+    // Animation on scroll
+    window.addEventListener('scroll', () => {
+        const blog1 = document.getElementById('blog1');
+        const blog2 = document.getElementById('blog2');
+
+        const triggerPoint = window.innerHeight - 100;
+
+        if (blog1.getBoundingClientRect().top < triggerPoint) {
+            blog1.classList.add('animate');
+        }
+
+        if (blog2.getBoundingClientRect().top < triggerPoint) {
+            blog2.classList.add('animate');
+        }
+    });
+
+    // Run on load too
+    window.dispatchEvent(new Event('scroll'));
+</script>
+        
+        
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     
-
-
-        
-        
-    <script src="https://kit.fontawesome.com/d077a0e0a8.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script>
+<script>
         $(document).ready(function(){
             console.log("jQuery ready");
             $('.icon').click(function(){
@@ -206,7 +231,7 @@
                 $('#nav-bar-list').toggleClass('active');
         });
     });
-    </script>
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -231,6 +256,7 @@
 
 
 </script>
+
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
       let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -271,7 +297,7 @@
       localStorage.removeItem('isLoggedIn');
       window.location.href = 'Home.html';
     }
-  </script>
+</script>
   
       <script src="demo.js"></script>
 </body>

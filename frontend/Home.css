@@ -15,54 +15,69 @@ body{
 }
 
 /* css for the header body  */
-.header-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
-    display: flex;
-    justify-content: space-between;
-    height: 4.5rem;
-    background-color: black;
-    border: 1px solid rgba(255,255, 255, 0.2);
-    overflow: hidden;
+.header-body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 4.5rem;
+background-color: black;
+border: 1px solid rgba(255,255,255,0.2);
+overflow: hidden;
+padding: 0 1rem;
 }
 
-.logo-info{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-
+.logo-info {
+display: flex;
+align-items: center;
 }
 
-.logo-info img{
-    height: 60px;
-    width: 60px;
-    margin-top:6px ;
+.logo-info img {
+height: 60px;
+width: 60px;
+align-self: center;
+margin-top: 7px ;
 }
 
-.logo-info h1{
-    font-size: 1.3rem;
-    display: inline-block;
-    color: white;
-}
- 
-#logo-title{
-    margin: .2rem;
-    padding: .2rem;
+#logo-title {
+margin-left: 0.5rem;
 }
 
-.nav-bar-list li{
-    list-style: none;
-    display: inline-block;
-    padding: 26px;
+#logo-title h1 {
+font-size: 1.3rem;
+color: white;
+margin: 0;
+line-height: 1.2;
+}
+
+.nav-bar {
+display: flex;
+align-items: center;
+}
+
+.nav-bar-list {
+list-style: none;
+display: flex;
+margin: 0;
+padding: 0;
+gap: 1.5rem;
+}
+
+.nav-bar-list li {
+padding: 26px;
+}
+
+.nav-bar-list li a {
+color: white;
+text-decoration: none;
 }
 
 .nav-bar-list li:hover {
-    background-color: white;
+background-color: white;
 }
 
 .nav-bar-list li:hover a {
-    text-decoration: none;
-    color: black;
+color: black;
 }
 
 .login-button {
@@ -96,48 +111,57 @@ body{
     color: black;
 }
 
-
-.nav-bar-list li a{
-    text-decoration: none;
-    color: white;
+.toggle {
+display: none;
+font-size: 1.8rem;
+color: white;
+cursor: pointer;
+margin-left: 1rem;
 }
 
-.login-button,.nav-bar-list li {
-    white-space: nowrap;
+@media (max-width: 940px) {
+.header-body {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
 }
 
-.toggle{
-    /* height: 4.5rem; */
+.logo-info{
+    align-self: center;
+}
+
+.toggle {
+    display: block;
     width: 100%;
-    padding: 10px 20px;
-    background-color: black;
-    text-align: right;
-    box-sizing: border-box;
-    color: white;
-    /* font: 30px; */
-    font-size: 30px;
+    text-align: center;
+}
+
+.nav-bar {
+    width: 100%;
+    flex-direction: column;
+}
+
+.nav-bar-list {
     display: none;
-    /* border: 1px solid rgba(255,255, 255, 0.2); */
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
 }
 
-/* ṛesponsive for the header file  */
-@media (max-width:940px){
-    .toggle{
-        display: block;
-    }
-    .nav-bar-list{
-        width: 100%;
-        display: none;
-    }
-    .nav-bar-list li {
-        display: block ;
-        text-align: center;
-    }
-    .active{
-        display: block;
-    }
+.nav-bar.active .nav-bar-list {
+    display: flex;
 }
 
+.nav-bar-list li {
+    text-align: center;
+    padding: 1rem;
+}
+
+.login-button {
+    align-self: center;
+    margin-bottom: 1rem;
+}
+}
 /* css for the centre body  */
 
 .center-body-image {
@@ -207,72 +231,109 @@ body{
     box-shadow: 2.2 6px 8px rgba(255, 140, 0, 0.6);
 }
 
+@media (max-width: 768px) {
+    .title {
+      font-size: 3rem;
+    }
+  
+    .tagline {
+      font-size: 1.8rem;
+    }
+  
+    .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .cta-primary {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+
         
 
 /* css for blogs */
-.blog-container{
-    height: 800px;
-    padding-top:30px;
-    padding-bottom: 30px;
-    border: 1px solid rgba(255,255, 255, 0.2);
+
+.blog-container {
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 100%;
-    max-width: 100%;
+    align-items: center;
+    gap: 40px;
 }
-
 
 .blogs {
-    padding: 40px;
-    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
     width: 70%;
-    letter-spacing: 1.13px;
-    border: 1px solid rgba(255,255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.84);
-}
-#blog1 {
+    max-width: 900px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     opacity: 0;
-    /* Don't add animation here */
     transition: all 1s ease;
+}
+
+.blogs.animate {
+    opacity: 1;
 }
 
 #blog1.animate {
-    animation: slidefromleft 2s ease forwards;
-}
-
-@keyframes slidefromleft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-#blog2 {
-    opacity: 0;
-    transition: all 1s ease;
-    align-self: flex-end;
-    /* No animation here, added via JS */
+    animation: slidefromleft 1.2s ease forwards;
 }
 
 #blog2.animate {
-    animation: slidefromright 2s ease forwards;
+    animation: slidefromright 1.2s ease forwards;
 }
 
-@keyframes slidefromright {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
+@keyframes slidefromleft {
+    from {
+        transform: translateX(-100%);
     }
-    100% {
-        opacity: 1;
+    to {
         transform: translateX(0);
     }
 }
+
+@keyframes slidefromright {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.blogs h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffa500;
+}
+
+.blogs p,ul{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blogs {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .blogs h2 {
+        font-size: 1.5rem;
+    }
+
+    .blogs p {
+        font-size: 1rem;
+    }
+}
+
+/* css for sevice box */
 .service-container {
     display: flex;
     justify-content: center;

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Section</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .blog-container {
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .blogs {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            width: 70%;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .blogs.animate {
+            opacity: 1;
+        }
+
+        #blog1.animate {
+            animation: slidefromleft 1.2s ease forwards;
+        }
+
+        #blog2.animate {
+            animation: slidefromright 1.2s ease forwards;
+        }
+
+        @keyframes slidefromleft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slidefromright {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .blogs h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffa500;
+        }
+
+        .blogs p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blogs {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .blogs h2 {
+                font-size: 1.5rem;
+            }
+
+            .blogs p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <div id="blog1" class="blogs">
+            <h2>Track Your Spending Easily</h2>
+            <p>
+                Why choose money minder:
+                <ul>
+                    <li>Daily Reminders: Stay informed with daily alerts that notify you if your spending exceeds your set budget.</li>
+                    <li>Effortless Expense Tracking: Easily record and categorize your expenses on a daily basis.</li>
+                    <li>Monthly Reports: Generates a detailed report of your monthly expenditures.</li>
+                </ul>
+            </p>
+        </div>
+
+        <div id="blog2" class="blogs">
+            <h2>How to start with Money Minder</h2>
+            <p>
+                <ul>
+                    <li>Log in or Sign up accordingly.</li>
+                    <li>Fill personal details and financial details forms to customize your experience.</li>
+                    <li>Specify the budget you need.</li>
+                    <li>Regular report will be concluded.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Animation on scroll
+        window.addEventListener('scroll', () => {
+            const blog1 = document.getElementById('blog1');
+            const blog2 = document.getElementById('blog2');
+
+            const triggerPoint = window.innerHeight - 100;
+
+            if (blog1.getBoundingClientRect().top < triggerPoint) {
+                blog1.classList.add('animate');
+            }
+
+            if (blog2.getBoundingClientRect().top < triggerPoint) {
+                blog2.classList.add('animate');
+            }
+        });
+
+        // Run on load too
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+</body>
+</html>
