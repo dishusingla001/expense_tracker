@@ -1,108 +1,144 @@
-/* Blog Section Container */
-body{
+/* === General Footer Styles === */
+footer {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
   background-color: black;
 }
 
-.blog-container {
-  padding: 30px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* === Main Footer Container === */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-columns {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
   width: 100%;
-  box-sizing: border-box;
-  color: white;
+  justify-content: space-between;
 }
 
-/* Individual Blog Styles */
-.blogs {
-  padding: 40px;
-  margin: 20px 0;
-  width: 70%;
-  box-sizing: border-box;
-  letter-spacing: 1.13px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.84);
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* === Brand Column === */
+.footer-brand {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
 }
 
-/* Hover effect */
-.blogs:hover {
-  box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
-  transform: scale(1.02);
+.footer-brand img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  align-self: center;
+  margin: 1rem;
+  padding: 0.2rem;
+  padding-top: 0.3rem;
+  border: 2px solid orange;
 }
 
-/* Blog animations */
-#blog1 {
-  opacity: 0;
-  transition: all 1s ease;
-  align-self: flex-start;
+.footer-brand h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: orange;
 }
 
-#blog1.animate {
-  animation: slidefromleft 2s ease forwards;
+.footer-brand .tagline {
+  font-size: 1rem;
+  color: #ccc;
+  max-width: 250px;
 }
 
-#blog2 {
-  opacity: 0;
-  transition: all 1s ease;
-  align-self: flex-end;
+/* === Navigation Column (Expanded) === */
+.footer-links {
+  flex: 2;
+  min-width: 250px;
 }
 
-#blog2.animate {
-  animation: slidefromright 2s ease forwards;
+.footer-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffb347;
+  border-bottom: 1px solid #ffb347;
+  display: inline-block;
+  padding-bottom: 0.3rem;
 }
 
-/* Keyframes */
-@keyframes slidefromleft {
-  0% {
-      opacity: 0;
-      transform: translateX(-100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(0);
-  }
+.footer-links ul {
+  list-style: none;
+  padding: 0;
 }
 
-@keyframes slidefromright {
-  0% {
-      opacity: 0;
-      transform: translateX(100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(0);
-  }
+.footer-links li {
+  margin-bottom: 0.75rem;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
-  .blogs {
-      width: 80%;
-      padding: 30px;
-  }
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: orange;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: orange;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* === Bottom Footer === */
+.footer-bottom {
+  background-color: #111;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.footer-bottom p {
+  margin: 0.25rem 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom p:hover {
+  color: orange;
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
-  .blogs {
-      width: 90%;
-      padding: 25px;
-      font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .blogs {
-      width: 100%;
-      padding: 20px;
-      font-size: 0.9rem;
+  .footer-columns {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
   }
 
-  .blog-container {
-      padding: 20px 10px;
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
   }
 }
