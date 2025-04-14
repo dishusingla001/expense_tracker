@@ -113,7 +113,7 @@
 // Fetch stats from backend using userEmail
 const userEmail = localStorage.getItem('userEmail');
 
-fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`)
+fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`)
   .then(res => res.json())
   .then(data => {
     document.querySelector('.stat-value').textContent = `$${data.totalSpent}`;
@@ -126,7 +126,7 @@ fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURI
 
 
 // 👇 Fetch all-time spent from backend
-fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`)
+fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`)
   .then(res => res.json())
   .then(data => {
     document.getElementById('allTimeSpent').textContent = `$${data.totalSpent}`;
@@ -143,7 +143,7 @@ const statCards = document.querySelectorAll('.stat-card');
 statCards.forEach(card => {
   const title = card.querySelector('.stat-title');
   if (title && title.textContent.includes('Last Entry')) {
-    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`)
+    fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`)
       .then(res => res.json())
       .then(data => {
         const valueElem = card.querySelector('.stat-value');
@@ -166,7 +166,7 @@ console.log("Sending email:", UserEmail);
 
 
 
-fetch('expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=test@example.com')
+fetch('https://expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=test@example.com')
   .then(response => response.json())
   .then(data => {
     console.log("📊 Data received from API:", data);
@@ -230,10 +230,10 @@ fetch('expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=test@
 
   // Load all data
   Promise.all([
-    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=${encodeURIComponent(userEmail)}`)
+    fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`https://expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=${encodeURIComponent(userEmail)}`)
   ])
   .then(async ([statsRes, totalRes, lastRes, daysRes]) => {
     // Check all responses
