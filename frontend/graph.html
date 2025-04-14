@@ -40,7 +40,7 @@
         </nav>
     </div>
 
-    <div class="login-button">
+    <div class="login-button" id="auth-button">
         <a href="login.html">Login</a>
     </div>
 
@@ -53,7 +53,7 @@
     <div class="stats-container">
       <div class="stat-card">
         <div class="stat-title">Total Spent (All Time)</div>
-        
+
         <div class="stat-value" id="allTimeSpent">$0.00</div>
         <div class="stat-change">Lifetime spending</div>
     </div>
@@ -66,21 +66,6 @@
     
   </div>
 
-  <!-- <div class="chart-section">
-    <div class="tab-container">
-      <div class="tab active">Monthly Reports</div>
-    </div>
-  
-    <!-- <div id="monthlyChartSection">
-      <div class="chart-header">
-        <div class="chart-title">Last 6 Days Spending</div>
-      </div>
-      <div class="chart-container" style="height: 300px;">
-        <canvas id="last6DaysChart" width="600" height="400"></canvas>
-      </div>
-      
-    </div> -->
-  </div> -->
   
 
 <script>
@@ -117,7 +102,7 @@
   function logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
-    window.location.href = 'Home.html';
+    window.location.href = 'index.html';
   }
 </script>
 
@@ -128,7 +113,7 @@
 // Fetch stats from backend using userEmail
 const userEmail = localStorage.getItem('userEmail');
 
-fetch(`http://localhost:3000/api/stats?userEmail=${encodeURIComponent(userEmail)}`)
+fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`)
   .then(res => res.json())
   .then(data => {
     document.querySelector('.stat-value').textContent = `$${data.totalSpent}`;
@@ -141,7 +126,7 @@ fetch(`http://localhost:3000/api/stats?userEmail=${encodeURIComponent(userEmail)
 
 
 // 👇 Fetch all-time spent from backend
-fetch(`http://localhost:3000/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`)
+fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`)
   .then(res => res.json())
   .then(data => {
     document.getElementById('allTimeSpent').textContent = `$${data.totalSpent}`;
@@ -158,7 +143,7 @@ const statCards = document.querySelectorAll('.stat-card');
 statCards.forEach(card => {
   const title = card.querySelector('.stat-title');
   if (title && title.textContent.includes('Last Entry')) {
-    fetch(`http://localhost:3000/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`)
+    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`)
       .then(res => res.json())
       .then(data => {
         const valueElem = card.querySelector('.stat-value');
@@ -181,7 +166,7 @@ console.log("Sending email:", UserEmail);
 
 
 
-fetch('http://localhost:3000/api/last-6-days?userEmail=test@example.com')
+fetch('expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=test@example.com')
   .then(response => response.json())
   .then(data => {
     console.log("📊 Data received from API:", data);
@@ -245,10 +230,10 @@ fetch('http://localhost:3000/api/last-6-days?userEmail=test@example.com')
 
   // Load all data
   Promise.all([
-    fetch(`http://localhost:3000/api/stats?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`http://localhost:3000/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`http://localhost:3000/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`),
-    fetch(`http://localhost:3000/api/last-6-days?userEmail=${encodeURIComponent(userEmail)}`)
+    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/stats?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/total-spent?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-expense?userEmail=${encodeURIComponent(userEmail)}`),
+    fetch(`expense-tracker-delta-ruddy-29.vercel.app/api/last-6-days?userEmail=${encodeURIComponent(userEmail)}`)
   ])
   .then(async ([statsRes, totalRes, lastRes, daysRes]) => {
     // Check all responses
@@ -281,7 +266,7 @@ fetch('http://localhost:3000/api/last-6-days?userEmail=test@example.com')
   })
   .catch(err => {
     console.error('Error loading data:', err);
-    alert('Failed to load dashboard data');
+    // alert('Failed to load dashboard data');
   });
 
   function renderLast6DaysChart(data) {
