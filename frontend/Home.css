@@ -12,6 +12,7 @@ body{
     width: 100vw;
     max-width: 100%;
     font-family: cursive;
+    overflow-x: hidden;
 }
 
 /* css for the header body  */
